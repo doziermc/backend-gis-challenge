@@ -16,7 +16,7 @@ Write a backend REST application with a single POST endpoint `/calculate_propert
 - Instructions should be provided for an evaluator to:
   - Run the app locally and exercise the endpoint.
   - Run any automated tests locally.
-- Code should be in a git-clonable repo
+- Code should be in a git-clonable repo.
 
 ## How the challenge will be evaluated
 - Code will be subjectively evaluated as per a normal Code Review for quality.
