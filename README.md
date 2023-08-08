@@ -7,29 +7,29 @@ A FastAPI-based REST application that accepts a Polygon/Multipolygon GeoJSON fea
 ## Usage
 The calculate properties app can be run locally or in a docker container.
 
-Pre-requisites: 
-- python 3.10 installed and set as your active python version.
+Prerequisites:
+- python 3.10 installed and set as your active python version
 - `virtualenv` and `requests` installed
-- docker installed, if running containerized version.
+- docker installed, if running containerized version
 
-### local
-1. Create and activate a new python 3.10 virtualenv. 
+### local usage
+1. Create and activate a new python 3.10 virtualenv:
 ```bash
 python -m venv env
 source env/bin/activate
 ```
 
-2. Install project dependencies. 
+2. Install project dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. To run tests, run 
+3. To run tests, run:
 ```bash
 pytest -s --cov
 ```
 
-4. Start the server
+4. Start the server:
 ```bash
 uvicorn calculate_properties.main:app --reload
 ```
@@ -37,11 +37,11 @@ uvicorn calculate_properties.main:app --reload
 5. Open `run_calc_props.py` and ensure the `location` variable is set to "local". Update the `geojson` variable to one of your choosing, and run the script in a new terminal: 
 
 ```bash
-backend-gis-challenge % python client.py 
+backend-gis-challenge % python run_calc_props.py
 {"bbox": [-105.260333, 40.044025, -105.259644, 40.044434], "type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-105.26033253133266, 40.044434356004956], [-105.26033253133266, 40.04402520089002], [-105.2596442110887, 40.04402520089002], [-105.2596442110887, 40.044434356004956], [-105.26033253133266, 40.044434356004956]]]}, "properties": {"area": 2668.62, "centroid": "POINT (-105.259988 40.044230)"}}
 ```
 
-### dockerized
+### docker usage
 Use the makefile to run the app in docker. 
 
 1. run tests: 

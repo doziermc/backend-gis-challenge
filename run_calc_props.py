@@ -6,6 +6,8 @@ import requests
 def post_to_service(location: str, body: dict) -> dict:
     """POST request to calculate-properties
 
+    Requires the app to be running locally or in docker.
+
     Parameters
     ----------
     location: str
