@@ -9,8 +9,27 @@ The calculate properties app can be run locally or in a docker container.
 
 Prerequisites:
 - python 3.10 installed and set as your active python version
-- `virtualenv` installed
+- `virtualenv` and `requests` installed
 - docker installed, if running containerized version
+
+### docker usage (recommended)
+Use the makefile to run the app in docker.
+
+1. run tests:
+```bash
+make docker-test
+```
+
+2. Run the app from the docker container:
+```bash
+make docker-run
+```
+
+3. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal. You will need `requests` installed in the environment where you run this script.
+
+```bash
+python run_calc_props.py
+```
 
 ### local usage
 1. Create and activate a new python 3.10 virtualenv:
@@ -34,27 +53,7 @@ pytest -s --cov
 uvicorn calculate_properties.main:app --reload
 ```
 
-5. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal (need the `requests` library if not in the previous venv):
-
-```bash
-backend-gis-challenge % python run_calc_props.py
-{"bbox": [-105.260333, 40.044025, -105.259644, 40.044434], "type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-105.26033253133266, 40.044434356004956], [-105.26033253133266, 40.04402520089002], [-105.2596442110887, 40.04402520089002], [-105.2596442110887, 40.044434356004956], [-105.26033253133266, 40.044434356004956]]]}, "properties": {"area": 2668.62, "centroid": "POINT (-105.259988 40.044230)"}}
-```
-
-### docker usage
-Use the makefile to run the app in docker. 
-
-1. run tests: 
-```bash
-make docker-test
-```
-
-2. Run the app from the docker container: 
-```bash
-make docker-run
-```
-
-3. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal. You will need `requests` installed in the environment where you run this script.
+5. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal (need the `requests` library if not in the previous venv).
 
 ## Assumptions and design decisions
 1. Coordinate reference system: The app does not enforce CRS, and any geographic data will return coordinates consistent with the CRS and area in square meters. Projected coordinate systems will fail in the area calculation. For consistency, input is recommended to be in EPSG:4326.
