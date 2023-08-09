@@ -9,8 +9,8 @@ The calculate properties app can be run locally or in a docker container.
 
 Prerequisites:
 - python 3.10 installed and set as your active python version
-- `virtualenv` and `requests` installed
-- docker installed, if running containerized version
+- docker and `requests` installed, if running containerized version
+- `virtualenv` installed, if running local version
 
 ### docker usage (recommended)
 Use the makefile to run the app in docker.
