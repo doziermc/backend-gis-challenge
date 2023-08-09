@@ -34,7 +34,7 @@ pytest -s --cov
 uvicorn calculate_properties.main:app --reload
 ```
 
-5. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal:
+5. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal (need the `requests` library if not in the previous venv):
 
 ```bash
 backend-gis-challenge % python run_calc_props.py
@@ -54,8 +54,7 @@ make docker-test
 make docker-run
 ```
 
-3. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal.
-
+3. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal. You will need `requests` installed in the environment where you run this script.
 
 ## Assumptions and design decisions
 1. Coordinate reference system: The app does not enforce CRS, and any geographic data will return coordinates consistent with the CRS and area in square meters. Projected coordinate systems will fail in the area calculation. For consistency, input is recommended to be in EPSG:4326.
