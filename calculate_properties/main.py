@@ -11,7 +11,10 @@ app = FastAPI()
 
 @app.post("/calculate-properties/")
 def calculate_properties(request_data: CalcPropRequest) -> CalcPropResponse:
-    """Adds centroid and area (sqm) properties and bbox to GeoJSON feature."""
+    """
+    Adds centroid and area (sqm) properties and bbox to a GeoJSON feature.
+    Requires geographic CRS, EPSG:4326 recommended.
+    """
     shp = shape(request_data.geometry)
 
     # validate geom type

@@ -4,16 +4,12 @@ import requests
 
 
 def post_to_service(location: str, body: dict) -> dict:
-    """POST request to calculate-properties
+    """
+    POST request to calculate-properties
 
-    Requires the app to be running locally or in docker.
-
-    Parameters
-    ----------
-    location: str
-        Location where the app is running: must be docker or local
-    body: dict
-        JSON request body
+    :param str location: Location where the app is running - docker or local
+    :param dict body: GeoJSON feature request body
+    :returns: JSON response body from POST request
     """
     if location == "docker":
         addr = "localhost:8000"
@@ -29,14 +25,12 @@ def post_to_service(location: str, body: dict) -> dict:
 def client():
     """Configure and send POST request to the calculate-properties service.
 
-    Returns
-    -------
-    dict
-        JSON response body of GeoJSON feature with appended properties
+    Requires the app to be running locally or in docker. Prints the JSON response body
+    of the provided GeoJSON feature with appended area, centroid, and bbox properties.
     """
 
     location = "local"  # or docker
-    geojson = {"type":"Feature","properties":{},"geometry":{"coordinates":[[[28.713562603965755,3.1970235537500997],[28.644196978193804,3.2064677378855038],[28.6505029441727,3.162394136604817],[28.694644706027702,3.137208378884523],[28.75455138282993,3.118318662109317],[28.757704365819365,3.1875792826630374],[28.748245416851034,3.2316518018622986],[28.713562603965755,3.1970235537500997]]],"type":"Polygon"}}
+    geojson =  {"type":"Feature","properties":{"cats":"delilah"},"geometry":{"coordinates":[[[-105.26033253133266,40.044434356004956],[-105.26033253133266,40.04402520089002],[-105.2596442110887,40.04402520089002],[-105.2596442110887,40.044434356004956],[-105.26033253133266,40.044434356004956]]],"type":"Polygon"}}
     req = post_to_service(location, geojson)
     print(json.dumps(req))
 

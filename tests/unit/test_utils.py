@@ -18,6 +18,12 @@ def test_calculate_area_sqm(open_test_json, expected):
     assert area == expected
 
 
+@pytest.mark.parametrize("file_name", ["poly_3857.geojson"])
+def test_calculate_area_3857(open_test_json):
+    with pytest.raises(ValueError):
+        calculate_area_sqm(shape(open_test_json["geometry"]))
+
+
 @pytest.mark.parametrize(
     "file_name,expected",
     (
