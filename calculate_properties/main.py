@@ -29,7 +29,7 @@ def calculate_properties(request_data: CalcPropRequest) -> CalcPropResponse:
     area_sqm = calculate_area_sqm(shp)
 
     # type check properties
-    properties = CalcPropResponseProperties(area_sqm=area_sqm, centroid=centroid)
+    properties = CalcPropResponseProperties(area=area_sqm, centroid=centroid)
 
     return CalcPropResponse(
         bbox=bbox, type="Feature", geometry=request_data.geometry, properties=properties

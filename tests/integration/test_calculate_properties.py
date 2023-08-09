@@ -17,7 +17,7 @@ def test_calculate_properties(open_test_json, area, centroid, test_app):
 
     assert response.status_code == 200
     data = response.json()
-    assert data["properties"]["area_sqm"] == area
+    assert data["properties"]["area"] == area
     assert data["properties"]["centroid"] == centroid
 
 

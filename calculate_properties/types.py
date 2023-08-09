@@ -7,7 +7,7 @@ class CalcPropRequest(Feature):
 
 
 class CalcPropResponseProperties(BaseModel):
-    area_sqm: float
+    area: float
     centroid: str
 
 
