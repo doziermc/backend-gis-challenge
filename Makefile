@@ -20,13 +20,9 @@ docker-shell: docker-build
 docker-test: docker-build
 	$(run_docker) pytest -s --cov
 
-install:
-	@pip install \
-	-r requirements.txt 
-
 compile:
 	@rm -f requirements*.txt
-	@pip-compile requirements.in
+	@pip-compile pyproject.toml
     
 sync:
 	@pip-sync requirements*.txt

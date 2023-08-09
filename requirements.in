@@ -1,8 +1,0 @@
-fastapi
-shapely
-pyproj
-httpx
-geojson-pydantic
-pytest
-pytest-cov
-uvicorn

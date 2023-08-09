@@ -69,3 +69,34 @@ make docker-run
 5. Synchronous processing. I considered whether the `calculate-properties` endpoint should be `async` and decided that it was not necessary, since the libraries used are not being awaited or using long I/O operations, and because FastAPI natively [uses an external threadpool](https://fastapi.tiangolo.com/async/#path-operation-functions).
 
 6. Dependency management. Dependencies are managed using `pip-tools` and `pip-compile` as a lightweight dependency management system that contains a record of working pinned versions. I didn't think it was necessary to split dev and prod dependencies for this effort.
+
+## Development
+
+### dependencies
+
+Install pip-tools in your development environment
+```bash
+pip install pip-tools
+```
+
+Add or remove dependencies to the pyproject.toml file, then compile and sync:
+```bash
+pip-compile pyproject.toml
+pip-sync
+```
+
+These commands are also in the makefile and can be run together:
+```bash
+make compile && make sync
+```
+
+### docker
+To build the docker container:
+```bash
+make docker-build
+```
+
+To enter the docker container:
+```bash
+make docker-shell
+```
