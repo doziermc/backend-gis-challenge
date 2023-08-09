@@ -16,4 +16,5 @@ dependencies = [
     "pytest",
     "pytest-cov",
     "uvicorn",
+    "requests",
 ]

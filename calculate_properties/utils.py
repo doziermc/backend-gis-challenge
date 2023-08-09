@@ -14,7 +14,6 @@ def calculate_centroid(geom: typing.Union[Polygon, MultiPolygon]) -> str:
     :param shapely.geometry geom: shapely polygon or multipolygon
     :returns: wkt of centroid POINT
     """
-    print(type(geom))
     centroid = geom.centroid
     return shapely.wkt.dumps(centroid, rounding_precision=6)
 

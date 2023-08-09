@@ -9,7 +9,7 @@ The calculate properties app can be run locally or in a docker container.
 
 Prerequisites:
 - python 3.10 installed and set as your active python version
-- `virtualenv` and `requests` installed
+- `virtualenv` installed
 - docker installed, if running containerized version
 
 ### local usage
@@ -34,7 +34,7 @@ pytest -s --cov
 uvicorn calculate_properties.main:app --reload
 ```
 
-5. Open `run_calc_props.py` and ensure the `location` variable is set to "local". Update the `geojson` variable to one of your choosing, and run the script in a new terminal: 
+5. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal:
 
 ```bash
 backend-gis-challenge % python run_calc_props.py
@@ -54,7 +54,7 @@ make docker-test
 make docker-run
 ```
 
-3. Open `run_calc_props.py` and ensure the `location` variable is set to "docker". Update the `geojson` variable to one of your choosing, and run the script in a new terminal: 
+3. Open `run_calc_props.py` and update the `geojson` variable to one of your choosing, and run the script in a new terminal.
 
 
 ## Assumptions and design decisions
@@ -74,7 +74,7 @@ make docker-run
 
 ### dependencies
 
-Install pip-tools in your development environment
+Install pip-tools in your development environment:
 ```bash
 pip install pip-tools
 ```
